@@ -1,39 +1,43 @@
 <div>
   <h3>ngIF</h3>
-  <div class="bg-light p-3"
-       *ngIf="isVisible"
-  >
-    <h4>{{userList[0].username}}</h4>
-    <p>{{userList[0].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
-    <p>{{userList[0].email}}</p>
+  <div class="d-flex justify-content-center">
+    <div class="bg-dark text-light boder rounded p-3 w-50 d-flex justify-content-around align-items-center"
+         *ngIf="isVisible">
+      <h4>{{userList[0].username}}</h4>
+      <p>{{userList[0].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
+      <p>{{userList[0].email}}</p>
+    </div>
+    <div class="bg-light text-dark boder rounded p-3 w-50 d-flex justify-content-around align-items-center"
+         *ngIf="!isVisible">
+      <h4>{{userList[1].username}}</h4>
+      <p>{{userList[1].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
+      <p>{{userList[1].email}}</p>
+    </div>
   </div>
-  <div class="bg-light p-3"
-       *ngIf="!isVisible"
-  >
-    <h4>{{userList[1].username}}</h4>
-    <p>{{userList[1].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
-    <p>{{userList[1].email}}</p>
-  </div>
+
 
 
   <h3>ngFor, ngClass, ngStyle</h3>
-  <ul class="bg-light p-3"
-      *ngFor="let user of userList; let i = index;
+  <ul class="bg-light p-3 list-unstyled d-flex flex-wrap justify-content-center"
+>
+    <li *ngFor="let user of userList; let i = index;
        let odd = odd; let even = even;
-       let first = first; let last = last
-">
-    <li [ngClass]="first ? 'text-info' : 'text-dark'"
-        [ngStyle]="odd ? {'background-color' : 'goldenrod'} : {'background-color': 'coral'}">
-
+       let first = first; let last = last"
+        [ngClass]="first || last ? 'text-light' : 'text-dark'"
+        [ngStyle]="even ? {'background-color' : 'gray'} : {'background-color': 'darkgray'}"
+        class="w-50 border rounded d-flex justify-content-between px-3 py-1">
       <h5>{{user.username}}</h5>
       <p>{{user.isSubscribed ? "Ricco" : "Morto de fame"}}</p>
       <p>{{user.email}}</p>
-      <button (click)="deleteUser(i)">Elimina</button>
+      <button (click)="deleteUser(i)"
+      class="btn btn-danger"
+      >{{'elimina' | uppercase}}</button>
     </li>
   </ul>
 
   <h3>ngSwitch</h3>
-  <div [ngSwitch]="counter">
+  <div [ngSwitch]="counter"
+  class="d-flex flex-column justify-content-center align-items-center">
     <div *ngSwitchCase="1">
       AO
     </div>
@@ -52,18 +56,21 @@
     <div *ngSwitchDefault="0">
       Marcellona
     </div>
-
+    <p>{{counter}}</p>
+    <button (click)="incrementCount()"
+    class="btn btn-outline-success">Incrementa</button>
   </div>
-  <button (click)="incrementCount()">Incrementa</button>
 
-  <div class="p-5">
-    <button class="btn btn-info" (click)="showTemplate()">{{isTemplate ? 'mostra template' : 'nascondi template'}}</button>
-    <p *ngIf="isTemplate else template">CIAO NON SONO UN NG TEMPLATE</p>
+  <h3>ngTemplate</h3>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <p *ngIf="isTemplate else template"
+       class="fw-bold text-danger p-2">CIAO NON SONO UN NG TEMPLATE</p>
+    <button class="btn btn-outline-primary" (click)="showTemplate()">{{isTemplate ? 'Mostra template' : 'Nascondi template'}}</button>
   </div>
 </div>
 
 <ng-template #template>
 <div>
-  CIAO SONO  UN NG TEMPLATE
+  <p class="fw-bold text-success p-2">CIAO SONO  UN NG TEMPLATE</p>
 </div>
 </ng-template>

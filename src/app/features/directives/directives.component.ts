@@ -34,7 +34,7 @@ export class DirectivesComponent implements OnInit {
   isVisible : boolean = true;
   timeoutId : number = 0;
   counter = 0;
-  isTemplate = false;
+  isTemplate = true;
 
   constructor() { }
 
@@ -51,6 +51,9 @@ export class DirectivesComponent implements OnInit {
   }
   incrementCount() {
   this.counter++
+    if(this.counter>5){
+      this.counter = 0
+    }
   }
   showTemplate() {
     this.isTemplate = !this.isTemplate;
