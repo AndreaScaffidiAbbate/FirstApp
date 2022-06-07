@@ -1,0 +1,58 @@
+<div>
+  <h3>ngIF</h3>
+  <div class="bg-light p-3"
+       *ngIf="isVisible"
+  >
+    <h4>{{userList[0].username}}</h4>
+    <p>{{userList[0].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
+    <p>{{userList[0].email}}</p>
+  </div>
+  <div class="bg-light p-3"
+       *ngIf="!isVisible"
+  >
+    <h4>{{userList[1].username}}</h4>
+    <p>{{userList[1].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
+    <p>{{userList[1].email}}</p>
+  </div>
+
+
+  <h3>ngFor, ngClass, ngStyle</h3>
+  <ul class="bg-light p-3"
+      *ngFor="let user of userList; let i = index;
+       let odd = odd; let even = even;
+       let first = first; let last = last
+">
+    <li [ngClass]="first ? 'text-info' : 'text-dark'"
+        [ngStyle]="odd ? {'background-color' : 'goldenrod'} : {'background-color': 'coral'}">
+
+      <h5>{{user.username}}</h5>
+      <p>{{user.isSubscribed ? "Ricco" : "Morto de fame"}}</p>
+      <p>{{user.email}}</p>
+      <button (click)="deleteUser(i)">Elimina</button>
+    </li>
+  </ul>
+
+  <h3>ngSwitch</h3>
+  <div [ngSwitch]="counter">
+    <div *ngSwitchCase="1">
+      AO
+    </div>
+    <div *ngSwitchCase="2">
+      Bella pe voi
+    </div>
+    <div *ngSwitchCase="3">
+      Catello
+    </div>
+    <div *ngSwitchCase="4">
+      Marcello
+    </div>
+    <div *ngSwitchCase="5">
+      Bello de zio
+    </div>
+    <div *ngSwitchDefault="0">
+      Marcellona
+    </div>
+
+  </div>
+  <button (click)="incrementCount()">Incrementa</button>
+</div>
