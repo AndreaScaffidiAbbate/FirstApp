@@ -34,6 +34,7 @@ export class DirectivesComponent implements OnInit {
   isVisible : boolean = true;
   timeoutId : number = 0;
   counter = 0;
+  isTemplate = false;
 
   constructor() { }
 
@@ -50,6 +51,9 @@ export class DirectivesComponent implements OnInit {
   }
   incrementCount() {
   this.counter++
+  }
+  showTemplate() {
+    this.isTemplate = !this.isTemplate;
   }
   ngOnDestroy(){
      clearInterval(this.timeoutId)

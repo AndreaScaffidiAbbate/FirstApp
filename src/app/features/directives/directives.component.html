@@ -55,4 +55,15 @@
 
   </div>
   <button (click)="incrementCount()">Incrementa</button>
+
+  <div class="p-5">
+    <button class="btn btn-info" (click)="showTemplate()">{{isTemplate ? 'mostra template' : 'nascondi template'}}</button>
+    <p *ngIf="isTemplate else template">CIAO NON SONO UN NG TEMPLATE</p>
+  </div>
 </div>
+
+<ng-template #template>
+<div>
+  CIAO SONO  UN NG TEMPLATE
+</div>
+</ng-template>
