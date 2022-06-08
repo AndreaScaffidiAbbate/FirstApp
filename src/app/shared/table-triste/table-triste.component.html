@@ -1,0 +1,19 @@
+<div>
+  <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let title of titlesList" scope="col">{{title}}</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let sad of sadList; let index = index">
+        <td>{{sad.id}}</td>
+        <td>{{sad.sadName}}</td>
+        <td>{{sad.sadStatus}}</td>
+        <td>{{sad.sadLevel}}</td>
+        <td><i class="fa fa-trash text-danger" (click)="sendIndex(index)"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

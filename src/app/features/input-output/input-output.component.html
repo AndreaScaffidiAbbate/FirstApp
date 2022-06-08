@@ -1,0 +1,47 @@
+<h3>INPUT</h3>
+<div class="d-flex">
+  <app-card *ngFor="let user of userList"
+    [src]="'https://picsum.photos/200'"
+    [title]="user.username"
+    [description]="user.email"
+    [textButton]="'Dettagli'"
+    [btNclass]="'success'"></app-card>
+</div>
+
+<div class="d-flex">
+  <app-card
+    [src]="'https://picsum.photos/200?random' + 10"
+    [title]="userList[0].username"
+    [description]="userList[0].email"
+    [textButton]="'Dettagli'"
+    [btNclass]="'success'"></app-card>
+  <app-card
+    [src]="'https://picsum.photos/200'"
+    [title]="userList[1].username"
+    [description]="userList[1].email"
+    [textButton]="'Marcella'"
+    [btNclass]="'info'"></app-card>
+  <app-card
+    [src]="'https://picsum.photos/200?random' + 30"
+    [title]="userList[2].username"
+    [description]="userList[2].email"
+    [textButton]="'Marcellone'"
+    [btNclass]="'danger'"></app-card>
+  <app-card
+    [title]="userList[3].username"
+    [description]="userList[3].email"
+    [textButton]="'Marcellona'"
+    ></app-card>
+</div>
+<h3>INPUT SAD TABLE</h3>
+<div>
+  <app-table-triste
+  [sadList]="sadUserList"
+  [titlesList]="titlesList"
+  (indexSender)="deleteItem($event)"></app-table-triste>
+</div>
+
+<h3>CONTENT PROJECTION</h3>
+<app-cardcustom>
+<p class="text-danger fw-bold">Contenuto passato tramite content Projection</p>
+</app-cardcustom>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import {BindingsModule} from "../bindings/bindings.module";
 import {DirectivesModule} from "../directives/directives.module";
+import {InputOutputModule} from "../input-output/input-output.module";
 
 
 
@@ -13,7 +14,8 @@ import {DirectivesModule} from "../directives/directives.module";
   imports: [
     CommonModule,
     BindingsModule,
-    DirectivesModule
+    DirectivesModule,
+    InputOutputModule
   ],
   exports:[HomeComponent]
 })
