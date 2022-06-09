@@ -1,9 +1,26 @@
-<nav>
-  <ul class="d-flex justify-content-end p-3 gap-1">
-    <li routerLink="/home" class="btn btn-outline-dark">Home</li>
-    <li routerLink="/bindings" class="btn btn-outline-dark">Bindings</li>
-    <li routerLink="/inputOutput" class="btn btn-outline-dark">Input Output</li>
-  </ul>
-  <input type="text">
-  <a href="/home">refresh</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse w-100 justify-content-between px-5">
+    <i class="navbar-brand fa fa-code fa-2x"></i>
+    <ul class="navbar-nav gap-4 text-uppercase">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home href<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/bindings">Bindings<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/directives">Directives<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/inputOutput">Input-Output<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="d-flex my-2 my-lg-0 gap-2">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
 </nav>

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Saduser} from "../../core/models/saduser";
+import {Saduser} from "../models/saduser";
 
 @Component({
   selector: 'app-table-triste',

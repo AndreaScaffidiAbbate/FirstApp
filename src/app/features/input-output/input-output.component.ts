@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../core/models/user";
-import {Saduser} from "../../core/models/saduser";
+import {User} from "../../shared/models/user";
+import {Saduser} from "../../shared/models/saduser";
 
 @Component({
   selector: 'app-input-output',

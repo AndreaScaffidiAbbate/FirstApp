@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { TableTristeComponent } from './table-triste/table-triste.component';
 import { CardcustomComponent } from './cardcustom/cardcustom.component';
+import { BoxCardComponent } from './box-card/box-card.component';
 
 
 
@@ -10,13 +11,15 @@ import { CardcustomComponent } from './cardcustom/cardcustom.component';
     declarations: [
         CardComponent,
         TableTristeComponent,
-        CardcustomComponent
+        CardcustomComponent,
+        BoxCardComponent
     ],
-  exports: [
-    CardComponent,
-    TableTristeComponent,
-    CardcustomComponent
-  ],
+    exports: [
+        CardComponent,
+        TableTristeComponent,
+        CardcustomComponent,
+        BoxCardComponent
+    ],
     imports: [
         CommonModule
     ]
