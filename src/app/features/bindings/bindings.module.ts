@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BindingsComponent } from './bindings.component';
 import {FormsModule} from "@angular/forms";
+import {AppRoutingModule} from "../../app-routing.module";
 
 
 
@@ -14,7 +15,7 @@ import {FormsModule} from "@angular/forms";
     ],
     imports: [
         CommonModule,
-      FormsModule
+        FormsModule
     ]
 })
 export class BindingsModule { }
