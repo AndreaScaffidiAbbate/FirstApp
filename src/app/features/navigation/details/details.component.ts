@@ -18,12 +18,12 @@ export class DetailsComponent implements OnInit {
   id : any;
   obj : any ;
 
-  constructor(private activatedROute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    this.activatedROute.paramMap.subscribe(
+    this.activatedRoute.paramMap.subscribe(
       params => {
         this.id = params.get('id')
       }
