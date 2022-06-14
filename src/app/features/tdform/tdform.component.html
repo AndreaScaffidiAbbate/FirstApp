@@ -1,0 +1,23 @@
+<h4>PLANT FORM</h4>
+<div class="d-flex justify-content-center gap-5 p-5">
+  <form #plantForm="ngForm"  class="w-25" (submit)="managePlant(plantForm)">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="number" class="form-control" name="id" id="id" [ngModel]="plant?.id">
+      </div>
+      <label for="plantName">Name</label>
+      <input type="text" class="form-control" name="plantName" id="plantName" [ngModel]="plant?.plantName" >
+    </div>
+    <div class="form-group">
+      <label for="plantHeight">Height</label>
+      <input type="number" class="form-control" name="plantHeight" id="plantHeight" [ngModel]="plant?.plantHeight">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="isEvergreen" name="isEvergreen" [ngModel]="plant?.isEvergreen">
+      <label class="form-check-label"  for="isEvergreen">Evergreen</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <app-plant-table class="w-50" [plantList]="plantList" (plantEmitter)="plantUpdate($event)"></app-plant-table>
+</div>

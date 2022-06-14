@@ -15,6 +15,7 @@ const routes: Routes = [
   {path: 'inputOutput', loadChildren: ()=> import('./features/input-output/input-output.module').then(m => m.InputOutputModule)},
   {path: 'navigation', loadChildren: ()=> import('./features/navigation/navigation.module').then(m => m.NavigationModule)},
   {path: 'leonardo', loadChildren: () => import('./features/leonardo/leonardo.module').then(m => m.LeonardoModule)},
+    {path: 'tdForm', loadChildren: () => import('./features/tdform/tdform.module').then(m => m.TDformModule)},
   {path: '**' , redirectTo: 'home', pathMatch: 'full'},
   {path: '' , redirectTo: 'home', pathMatch: 'full'}
 
