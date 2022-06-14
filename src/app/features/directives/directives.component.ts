@@ -32,7 +32,7 @@ export class DirectivesComponent implements OnInit {
     ]
 
   isVisible : boolean = true;
-  timeoutId : number = 0;
+  timeoutId : any = 0;
   counter = 0;
   isTemplate = true;
 

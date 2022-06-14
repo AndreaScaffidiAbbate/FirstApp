@@ -1,7 +1,7 @@
 <div class="d-flex p-5 justify-content-center align-items-center">
   <h1>HOMEPAGE</h1>
 </div>
-<div class="d-flex w-100 justify-content-center align-items-center gap-5">
+<div class="d-flex w-100 justify-content-center align-items-center gap-5 flex-wrap mb-5">
   <app-box-card [topic]="'BINDINGS'" [icon]="'fa-link fa-5x'">
     <button routerLink="/bindings"
             class="basicBtn"><i class="fa fa-arrow-right"></i></button>
@@ -12,6 +12,14 @@
   </app-box-card>
   <app-box-card [topic]="'INPUT OUTPUT'" [icon]="'fa-link fa-5x'">
     <button routerLink="/inputOutput"
+            class="basicBtn"><i class="fa fa-arrow-right"></i></button>
+  </app-box-card>
+  <app-box-card [topic]="'NAVIGATION'" [icon]="'fa-link fa-5x'">
+    <button routerLink="/navigation"
+            class="basicBtn"><i class="fa fa-arrow-right"></i></button>
+  </app-box-card>
+  <app-box-card [topic]="'TD FORM'" [icon]="'fa-link fa-5x'">
+    <button routerLink="/tdForm"
             class="basicBtn"><i class="fa fa-arrow-right"></i></button>
   </app-box-card>
 </div>

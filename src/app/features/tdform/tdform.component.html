@@ -1,23 +1,39 @@
-<h4>PLANT FORM</h4>
+<h2 class="text-center p-5">TEMPLATE-DRIVEN PLANT FORM</h2>
 <div class="d-flex justify-content-center gap-5 p-5">
   <form #plantForm="ngForm"  class="w-25" (submit)="managePlant(plantForm)">
     <div class="form-group">
-      <div class="form-group">
+      <div class="mb-3">
         <label for="id">ID</label>
-        <input type="number" class="form-control" name="id" id="id" [ngModel]="plant?.id">
+        <input type="number" required class="form-control" name="id" id="id" [ngModel]="plant?.id" #id="ngModel">
+        <small *ngIf="id.invalid && (id.dirty || id.touched)"
+               class="text-danger">*Campo obbligatorio</small>
       </div>
+      <div class="mb-3">
       <label for="plantName">Name</label>
-      <input type="text" class="form-control" name="plantName" id="plantName" [ngModel]="plant?.plantName" >
+      <input type="text" required class="form-control" name="plantName" id="plantName"
+             [ngModel]="plant?.plantName"
+             #plantName="ngModel"
+             minlength="3"
+             maxlength="10"
+      >
+        <small *ngIf="plantName.invalid && (plantName.dirty || plantName.touched)"
+               class="text-danger">*Campo obbligatorio</small>
     </div>
-    <div class="form-group">
+    <div class="mb-3">
       <label for="plantHeight">Height</label>
-      <input type="number" class="form-control" name="plantHeight" id="plantHeight" [ngModel]="plant?.plantHeight">
+      <input type="number" required class="form-control" name="plantHeight" id="plantHeight" [ngModel]="plant?.plantHeight" #plantHeight='ngModel'>
+      <small *ngIf="plantHeight.invalid && (plantHeight.dirty || plantHeight.touched)"
+             class="text-danger">*Campo obbligatorio</small>
     </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="isEvergreen" name="isEvergreen" [ngModel]="plant?.isEvergreen">
+    <div class="mb-3 form-check">
+      <input type="checkbox"  class="form-check-input" id="isEvergreen" name="isEvergreen" [ngModel]="plant?.isEvergreen">
       <label class="form-check-label"  for="isEvergreen">Evergreen</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="plantForm.invalid"
+      type="submit" class="btn btn-success">Submit</button>
+    </div>
+    <small *ngIf="plantForm.touched && plantForm.invalid || plantForm.dirty && plantForm.invalid"
+    class="text-danger">Compila tutti i campi</small>
   </form>
   <app-plant-table class="w-50" [plantList]="plantList" (plantEmitter)="plantUpdate($event)"></app-plant-table>
 </div>
