@@ -1,0 +1,45 @@
+<div class="d-flex flex-column align-items-center justify-content-around">
+  <div class="p-5">
+    <h2>{{'song reactive form' | uppercase }}</h2>
+  </div>
+  <div class="d-flex justify-content-around w-100 p-5">
+    <form class="w-25 p-3" [formGroup]="songForm" (ngSubmit)="manageSong()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title" required min="1" max="20" pattern="a-zA-Z">
+        <small *ngIf="songForm.get('title')?.invalid && songForm.get('title')?.touched">*Campo obbligatorio</small>
+      </div>
+      <div class="form-group mb-3">
+        <label for="genre">Genre</label>
+        <select class="form-control" id="genre" formControlName="genre">
+          <option *ngFor="let genre of genres"  [ngValue]="genre">{{genre.mainGenre}} {{genre.subGenre ? ' - ' +  genre.subGenre : ''}} </option>
+        </select>
+      </div>
+      <div class="form-group mb-3">
+        <label for="duration">Duration</label>
+        <input type="number" class="form-control" id="duration" formControlName="duration">
+      </div>
+      <button type="submit" class="btn btn-primary">{{this.song ? 'Save Changes' : 'Add Song'}}</button>
+    </form>
+
+
+    <table class="table w-50 p-3">
+      <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let song of songList">
+        <td>{{song.title}}</td>
+        <td>{{song.genre.mainGenre}} {{song.genre.subGenre ? ' - ' +  song.genre.subGenre : ''}} </td>
+        <td>{{song.duration}}</td>
+        <td><i class="fa fa-pencil text-danger btn" (click)="setSelected(song)"></i></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

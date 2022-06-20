@@ -15,7 +15,9 @@ const routes: Routes = [
   {path: 'inputOutput', loadChildren: ()=> import('./features/input-output/input-output.module').then(m => m.InputOutputModule)},
   {path: 'navigation', loadChildren: ()=> import('./features/navigation/navigation.module').then(m => m.NavigationModule)},
   {path: 'leonardo', loadChildren: () => import('./features/leonardo/leonardo.module').then(m => m.LeonardoModule)},
-    {path: 'tdForm', loadChildren: () => import('./features/tdform/tdform.module').then(m => m.TDformModule)},
+  {path: 'tdForm', loadChildren: () => import('./features/tdform/tdform.module').then(m => m.TDformModule)},
+  {path: 'reactiveForm', loadChildren: () => import('./features/reactive-form/reactive-form.module').then(m => m.ReactiveFormModule)},
+  {path: 'service', loadChildren: () => import('./features/user/user-manage.module').then(m => m.UserManageModule)},
   {path: '**' , redirectTo: 'home', pathMatch: 'full'},
   {path: '' , redirectTo: 'home', pathMatch: 'full'}
 

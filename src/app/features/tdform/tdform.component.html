@@ -14,8 +14,7 @@
              [ngModel]="plant?.plantName"
              #plantName="ngModel"
              minlength="3"
-             maxlength="10"
-      >
+             maxlength="10">
         <small *ngIf="plantName.invalid && (plantName.dirty || plantName.touched)"
                class="text-danger">*Campo obbligatorio</small>
     </div>

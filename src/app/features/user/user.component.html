@@ -1,0 +1,15 @@
+<div>
+  <ul class="d-flex gap-5 list-unstyled">
+    <li *ngFor="let user of userList">
+      <p>{{user.name}}</p>
+      <p>{{user.surname}}</p>
+      <p>{{user.phoneNumber}}</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <button class="btn btn-success" (click)="postNewUser()">
+    Add
+  </button>
+</div>
