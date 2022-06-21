@@ -10,7 +10,7 @@ export class BindingsComponent implements OnInit {
 
   name = "Giacomo";
   isMarcello = true;
-  path = 'https://picsum.photos/200'
+  path = 'https://picsum.photos/100'
 
   user1 : User = {
     username : "Marcello",

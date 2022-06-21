@@ -1,34 +1,36 @@
-<div>
-  <h3>ngIF</h3>
-  <div class="d-flex justify-content-center">
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h3 class="mt-5">ngIF</h3>
+  <div class="d-flex justify-content-center w-75 mb-5">
     <div class="bg-dark text-light boder rounded p-3 w-50 d-flex justify-content-around align-items-center"
          *ngIf="isVisible">
       <h4>{{userList[0].username}}</h4>
-      <p>{{userList[0].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
-      <p>{{userList[0].email}}</p>
+      <p class="m-0">{{userList[0].isSubscribed ? "Ricco" : "Morto de fame"}}
+        <i class="fa text-light" [ngClass]="userList[0].isSubscribed ? 'fa-star' : 'fa-trash'"></i></p>
+      <p class="m-0">{{userList[0].email}}</p>
     </div>
-    <div class="bg-light text-dark boder rounded p-3 w-50 d-flex justify-content-around align-items-center"
+    <div class="bg-danger text-light boder rounded p-3 w-50 d-flex justify-content-around align-items-center"
          *ngIf="!isVisible">
       <h4>{{userList[1].username}}</h4>
-      <p>{{userList[1].isSubscribed ? "Ricco" : "Morto de fame"}}</p>
-      <p>{{userList[1].email}}</p>
+      <p class="m-0">{{userList[1].isSubscribed ? "Ricco" : "Morto de fame"}}
+        <i class="fa text-light" [ngClass]="userList[1].isSubscribed ? 'fa-crown' : 'fa-trash'"></i></p>
+      <p class="m-0">{{userList[1].email}}</p>
     </div>
   </div>
 
 
 
   <h3>ngFor, ngClass, ngStyle</h3>
-  <ul class="bg-light p-3 list-unstyled d-flex flex-wrap justify-content-center"
+  <ul class="bg-light p-3 list-unstyled d-flex flex-wrap justify-content-center w-75"
 >
     <li *ngFor="let user of userList; let i = index;
        let odd = odd; let even = even;
        let first = first; let last = last"
         [ngClass]="first || last ? 'text-light' : 'text-dark'"
         [ngStyle]="even ? {'background-color' : 'gray'} : {'background-color': 'darkgray'}"
-        class="w-50 border rounded d-flex justify-content-between px-3 py-1">
+        class="w-50 border rounded d-flex justify-content-around align-items-center p-3">
       <h5>{{user.username}}</h5>
-      <p>{{user.isSubscribed ? "Ricco" : "Morto de fame"}}</p>
-      <p>{{user.email}}</p>
+      <p class="m-0">{{user.isSubscribed ? "Ricco" : "Morto de fame"}}</p>
+      <p class="m-0">{{user.email}}</p>
       <button (click)="deleteUser(i)"
       class="btn btn-danger"
       >{{'elimina' | uppercase}}</button>
@@ -37,7 +39,7 @@
 
   <h3>ngSwitch</h3>
   <div [ngSwitch]="counter"
-  class="d-flex flex-column justify-content-center align-items-center">
+  class="d-flex flex-column justify-content-center align-items-center mb-5">
     <div *ngSwitchCase="1">
       AO
     </div>
@@ -58,14 +60,14 @@
     </div>
     <p>{{counter}}</p>
     <button (click)="incrementCount()"
-    class="btn btn-outline-success">Incrementa</button>
+    class="btn btn-outline-danger">Incrementa</button>
   </div>
 
   <h3>ngTemplate</h3>
-  <div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center mb-5">
     <p *ngIf="isTemplate else template"
        class="fw-bold text-danger p-2">CIAO NON SONO UN NG TEMPLATE</p>
-    <button class="btn btn-outline-primary" (click)="showTemplate()">{{isTemplate ? 'Mostra template' : 'Nascondi template'}}</button>
+    <button class="btn btn-outline-danger" (click)="showTemplate()">{{isTemplate ? 'Mostra template' : 'Nascondi template'}}</button>
   </div>
 </div>
 

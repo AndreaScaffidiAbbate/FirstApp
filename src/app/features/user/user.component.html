@@ -1,5 +1,6 @@
-<div class="d-flex justify-content-around align-items-center h-100 p-5">
+<div class="d-flex justify-content-around h-100 p-5">
   <div class="d-flex flex-column justify-content-center align-items-center w-25 bg-dark">
+    <i class="fa fa-user-plus fa-5x text-light"></i>
     <h4 class="text-light p-2">User Form</h4>
     <form  [formGroup]="userForm" (ngSubmit)="manageUser()">
       <div>
@@ -22,10 +23,10 @@
         <small class="text-danger fs-6"
                *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched">*Campo obbligatorio</small>
       </div>
-      <button type="submit" class="btn btn-outline-light m-3" [disabled]="userForm.invalid" >Add User</button>
+      <button type="submit" class="btn btn-outline-light m-4 w-75" [disabled]="userForm.invalid" >{{userToEdit ? 'Edit' : 'Add'}}</button>
     </form>
   </div>
-  <div class="w-75">
+  <div class="w-75 my-5">
     <ul class="d-flex gap-5 list-unstyled align-items-center justify-content-center flex-wrap">
       <li *ngFor="let user of userList" class="card text-center p-3 w-25 bg-dark text-light ">
         <p>{{user.name}}</p>

@@ -1,5 +1,25 @@
 .boxCard{
   width: 20rem;
-  height: 10rem;
-  border-radius: 2rem;
+  height: 25rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(194, 194, 222, 0.13);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.38);
 }

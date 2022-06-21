@@ -1,16 +1,16 @@
 <div class="d-flex p-5 flex-column justify-content-center align-items-center">
   <h1 class="text-dark">BINDINGS</h1>
 <div class="d-flex justify-content-around p-5">
-  <div class="text-start text-primary">
+  <div class="text-start text-dark card p-3 shadow">
     <p><strong>Interpolation :</strong> {{name | uppercase }}</p>
-    <p><strong>Expression and Currency Pipe :</strong>{{3 * 3 + 2 | currency : 'EUR'}}</p>
+    <p><strong>Expression and Currency Pipe : </strong>{{3 * 3 + 2 | currency : 'EUR'}}</p>
     <p><strong>Operatore Ternario :</strong> {{isMarcello ? "Marcello" : "not Marcello"}}</p>
     <p><strong>Proprietà di un oggetto :</strong> {{user1.email}}</p>
-    <button class="btn btn-primary">{{user1.isSubscribed ? "Subscribed" : "Not Subscribed"}}</button>
+    <button class="btn btn-outline-dark w-50">{{user1.isSubscribed ? "Subscribed" : "Not Subscribed"}}</button>
   </div>
   <div>
-    <div class="d-flex align-items-center text-primary p-5">
-      <label><strong>Property :</strong></label>
+    <div class="d-flex align-items-center text-dark p-5">
+      <label><strong>Property : </strong></label>
       <img [src]="path"
            class="p-1 border rounded-circle">
     </div>
@@ -24,15 +24,15 @@
     <input [disabled]="isMarcello" class="form-control w-25" [placeholder]="isMarcello ? 'Disabilitato' : 'Abilitato'">
     <button
       (click)="changeMarcello()"
-    class="btn btn-primary">{{isMarcello ? "Unset Marcello" : "Set Marcello"}}</button>
+    class="btn btn-dark">{{isMarcello ? "Unset Marcello" : "Set Marcello"}}</button>
   </div>
 
-  <div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center card p-3 shadow">
     <label class="fw-bold">One way change</label>
-    <input type="text" class="form-control w-75"
+    <input type="text" class="form-control w-75 mb-3"
            [ngModel]="name" (keyup.enter)="changeText($event)">
     <label class="fw-bold">Two way change</label>
-    <input type="text" class="form-control w-75"
+    <input type="text" class="form-control w-75 mb-3"
            [(ngModel)]="name" (keyup.enter)="changeText($event)">
     <h3>{{name}}</h3>
   </div>

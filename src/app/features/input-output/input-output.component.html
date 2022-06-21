@@ -33,9 +33,11 @@
     [textButton]="'Marcellona'"
     ></app-card>
 </div>
-<h2 class="text-center p-5">INPUT SAD TABLE</h2>
-<div>
+
+<h2 class="text-center p-5">INPUT-OUTPUT SAD TABLE</h2>
+<div class="d-flex justify-content-center align-items-center">
   <app-table-triste
+    class="w-75 shadow"
   [sadList]="sadUserList"
   [titlesList]="titlesList"
   (indexSender)="deleteItem($event)"></app-table-triste>

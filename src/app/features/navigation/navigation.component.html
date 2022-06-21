@@ -1,7 +1,8 @@
-<div class="h-100 p-5">
-  <ul class="list-unstyled d-flex justify-content-center align-items-center text-center gap-3">
+<div class="h-100 p-5 d-flex justify-content-center align-items-center flex-column">
+  <h1 class="my-5">STATIC NAVIGATION TO DETAIL</h1>
+  <ul class="list-unstyled d-flex justify-content-center align-items-center text-center gap-3 w-100 h-50 my-5">
     <li *ngFor="let plant of plantList"
-    class="card w-25 h-25 bg-dark text-light d-flex justify-content-around ">
+    class="card w-25 h-50 bg-dark text-light d-flex justify-content-around my-5 shadow">
       <p class="p-5">{{plant.name}}</p>
       <button><i class="fa fa-info fa-2x text-dark btn btn-light" [routerLink]="['./details',plant.id]"></i></button>
     </li>
