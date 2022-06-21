@@ -14,7 +14,20 @@ export class UserService {
    return this.http.get<NewUser[]>('http://localhost:3000/Users');
   }
 
-  postUser(newUser : NewUser): Observable<NewUser>{
-    return this.http.post<NewUser>('http://localhost:3000/Users', newUser)
+  getUserById(id:number):Observable<NewUser>{
+    return this.http.get<NewUser>('http://localhost:3000/Users/'+id);
   }
+
+  postUser(newUser : NewUser): Observable<NewUser>{
+    return this.http.post<NewUser>('http://localhost:3000/Users', newUser);
+  }
+
+  patchUser(id : number, userToUpdate : NewUser): Observable<NewUser>{
+    return this.http.patch<NewUser>('http://localhost:3000/Users/'+ id, userToUpdate);
+  }
+
+  deleteUser(id: string):Observable<NewUser>{
+    return this.http.delete<NewUser>('http://localhost:3000/Users/'+ id);
+  }
+
 }

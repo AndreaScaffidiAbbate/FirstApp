@@ -1,3 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "theme/shared/button.scss";
 @import "theme/shared/card.scss";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
