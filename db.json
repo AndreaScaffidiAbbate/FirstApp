@@ -1,18 +1,5 @@
 {
-  "Users": [
-    {
-      "name": "Giulia",
-      "surname": "Marcelli",
-      "phoneNumber": 2222222222,
-      "id": 1
-    },
-    {
-      "name": "Marcellaccio",
-      "surname": "Mercellonzi",
-      "phoneNumber": 1111111111,
-      "id": 2
-    }
-  ],
+  "Users": [],
   "Marcelli": [
     {
       "id": 234443,

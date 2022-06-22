@@ -1,4 +1,4 @@
-<h2 class="text-center p-5">INPUT</h2>
+<h2 class="text-center p-5 fw-light fst-italic">INPUT</h2>
 <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
   <app-card *ngFor="let user of userList"
     [src]="'https://picsum.photos/200'"
@@ -34,7 +34,7 @@
     ></app-card>
 </div>
 
-<h2 class="text-center p-5">INPUT-OUTPUT SAD TABLE</h2>
+<h2 class="text-center p-5 fw-light fst-italic">INPUT-OUTPUT SAD TABLE</h2>
 <div class="d-flex justify-content-center align-items-center">
   <app-table-triste
     class="w-75 shadow"
@@ -43,7 +43,7 @@
   (indexSender)="deleteItem($event)"></app-table-triste>
 </div>
 
-<h2 class="text-center p-5">CONTENT PROJECTION</h2>
+<h2 class="text-center p-5 fw-light fst-italic">CONTENT PROJECTION</h2>
 <div class="d-flex justify-content-center align-items-center mb-5">
   <app-cardcustom>
     <p class="text-danger fw-bold">Contenuto passato tramite content Projection</p>
