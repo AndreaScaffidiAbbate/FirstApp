@@ -66,7 +66,10 @@ export class UserComponent implements OnInit, OnDestroy {
   }
   updateUser(id:number, editedUser : NewUser){
     this.actionsUserSubscription = this.userService.patchUser(id, editedUser).subscribe(
-      obs => {this.getAllUsers(), this.userForm.reset(), console.log(obs)},
+      obs => {
+        this.getAllUsers(),
+        this.userToEdit = undefined,
+        this.userForm.reset()},
       error => console.log(error),
       ()=> console.log('Patch: complete'))
   }

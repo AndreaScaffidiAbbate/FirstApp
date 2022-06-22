@@ -1,41 +1,45 @@
-<div class="d-flex justify-content-around h-100 p-5">
-  <div class="d-flex flex-column justify-content-center align-items-center w-25 bg-dark">
+<div class="d-flex justify-content-around h-100 ">
+  <div class="d-flex flex-column justify-content-center align-items-center w-25 bg-danger py-5">
     <i class="fa fa-user-plus fa-5x text-light"></i>
     <h4 class="text-light p-2">User Form</h4>
     <form  [formGroup]="userForm" (ngSubmit)="manageUser()">
       <div>
-        <label for="name"></label>
-        <input class="form-control" required minlength="3" maxlength="20" type="text" id="name" formControlName="name">
-        <small class="text-danger fs-6"
+        <input placeholder="First Name" class="form-control my-3" required minlength="3" maxlength="20" type="text" id="name" formControlName="name">
+        <small class="text-dark fs-6"
                *ngIf="userForm.get('name')?.invalid && userForm.controls['name']?.touched
                || userForm.get('name')?.invalid && userForm.controls['name']?.dirty">*Campo obbligatorio</small>
       </div>
       <div>
-        <label for="surname"></label>
-        <input class="form-control" required minlength="3" maxlength="20" type="text" id="surname" formControlName="surname">
-        <small class="text-danger fs-6"
+        <input placeholder="Surname" class="form-control mb-3" required minlength="3" maxlength="20" type="text" id="surname" formControlName="surname">
+        <small class="text-dark fs-6"
                *ngIf="userForm.get('surname')?.invalid && userForm.controls['surname']?.touched
                || userForm.get('surname')?.invalid && userForm.controls['surname']?.dirty">*Campo obbligatorio</small>
       </div>
       <div>
-        <label for="phoneNumber"></label>
-        <input class="form-control" required minlength="10" maxlength="10" type="number"  id="phoneNumber" formControlName="phoneNumber">
-        <small class="text-danger fs-6"
+        <input placeholder="Phone Number" class="form-control mb-5" required minlength="10" maxlength="10" type="number"  id="phoneNumber" formControlName="phoneNumber">
+        <small class="text-dark fs-6"
                *ngIf="userForm.get('phoneNumber')?.invalid && userForm.get('phoneNumber')?.touched">*Campo obbligatorio</small>
       </div>
-      <button type="submit" class="btn btn-outline-light m-4 w-75" [disabled]="userForm.invalid" >{{userToEdit ? 'Edit' : 'Add'}}</button>
+      <button type="submit" class="btn btn-dark m-4 w-75" [disabled]="userForm.invalid" >{{userToEdit ? 'Edit' : 'Add'}}</button>
     </form>
   </div>
   <div class="w-75 my-5">
-    <ul class="d-flex gap-5 list-unstyled align-items-center justify-content-center flex-wrap">
-      <li *ngFor="let user of userList" class="card text-center p-3 w-25 bg-dark text-light ">
-        <p>{{user.name}}</p>
+    <div *ngIf="userList.length == 0"
+    class="d-flex justify-content-center align-items-center h-100 flex-column">
+      <h1 class="text-danger fw-lighter fst-italic">
+        No Users found
+      </h1>
+      <p>Fill up the form and add new users!</p>
+    </div>
+    <ul *ngIf="userList.length > 0" class="d-flex gap-5 list-unstyled align-items-center justify-content-center flex-wrap">
+      <li *ngFor="let user of userList" class="card d-flex justify-content-center align-items-center flex-column p-3 w-25 bg-dark text-light ">
+        <p class="fw-bolder text-danger fst-italic fs-4 m-0">{{user.name}}</p>
         <p>{{user.surname}}</p>
-        <p>{{user.phoneNumber}}</p>
-        <div class="d-flex justify-content-around">
-          <i class="fa fa-pencil-square text-light fa-2x btn" (click)="setUser(user.id)"></i>
-          <i class="fa fa-eye text-light fa-2x btn" [routerLink]="'/service/details/'+ user.id" ></i>
-          <i class="fa fa-trash text-danger fa-2x btn" (click)="openDialog(dialog, user.id)"></i>
+        <p>+39 {{user.phoneNumber}}</p>
+        <div class="d-flex justify-content-around w-50">
+          <i class="fa fa-pencil text-light  btn" (click)="setUser(user.id)"></i>
+          <i class="fa fa-eye text-light  btn" [routerLink]="'/service/details/'+ user.id" ></i>
+          <i class="fa fa-trash text-danger  btn" (click)="openDialog(dialog, user.id)"></i>
         </div>
       </li>
     </ul>
